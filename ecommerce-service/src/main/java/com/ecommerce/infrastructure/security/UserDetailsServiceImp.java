@@ -1,7 +1,7 @@
 package com.ecommerce.infrastructure.security;
 
-import com.ecommerce.domain.model.User;
-import com.ecommerce.repository.UserRepository;
+import com.ecommerce.adapter.model.User;
+import com.ecommerce.adapter.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;

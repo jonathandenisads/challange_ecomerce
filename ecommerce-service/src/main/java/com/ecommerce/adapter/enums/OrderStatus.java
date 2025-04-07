@@ -1,4 +1,4 @@
-package com.ecommerce.core.domain.enums;
+package com.ecommerce.adapter.enums;
 
 public enum OrderStatus {
     PENDING, PAID, CANCELED

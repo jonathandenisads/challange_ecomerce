@@ -1,6 +1,5 @@
-package com.ecommerce.core.domain.model;
+package com.ecommerce.adapter.model;
 
-import com.ecommerce.core.domain.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

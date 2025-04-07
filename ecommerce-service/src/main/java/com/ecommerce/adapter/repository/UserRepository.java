@@ -1,6 +1,6 @@
-package com.ecommerce.repository;
+package com.ecommerce.adapter.repository;
 
-import com.ecommerce.core.domain.model.User;
+import com.ecommerce.adapter.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

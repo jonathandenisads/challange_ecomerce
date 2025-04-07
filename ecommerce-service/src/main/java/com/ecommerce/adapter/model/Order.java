@@ -1,6 +1,6 @@
-package com.ecommerce.core.domain.model;
+package com.ecommerce.adapter.model;
 
-import com.ecommerce.core.domain.enums.OrderStatus;
+import com.ecommerce.adapter.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +26,10 @@ public class Order {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

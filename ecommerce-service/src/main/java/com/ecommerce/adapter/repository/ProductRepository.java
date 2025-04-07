@@ -1,6 +1,6 @@
-package com.ecommerce.repository;
+package com.ecommerce.adapter.repository;
 
-import com.ecommerce.core.domain.model.Product;
+import com.ecommerce.adapter.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

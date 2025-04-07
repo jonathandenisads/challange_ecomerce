@@ -1,8 +1,10 @@
-package com.ecommerce.core.domain.model;
+package com.ecommerce.adapter.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -32,4 +34,11 @@ public class User {
         USER
     }
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders = new ArrayList<>();
+
+    public void addOrder(Order order) {
+        orders.add(order);
+        order.setUser(this);
+    }
 }

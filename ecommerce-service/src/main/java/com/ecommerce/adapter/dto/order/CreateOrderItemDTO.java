@@ -1,10 +1,16 @@
-package com.ecommerce.adapter.dto;
+package com.ecommerce.adapter.dto.order;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import org.hibernate.validator.constraints.UUID;
+
+import java.util.UUID;
+
 
 public record CreateOrderItemDTO(
+        @NotNull(message = "ID do produto é obrigatório")
         @NotNull UUID productId,
-        @Positive Integer quantity
+
+        @NotNull(message = "Quantidade é obrigatória")
+        @Positive(message = "Quantidade deve ser maior que zero")
+        Integer quantity
 ) {}

@@ -1,9 +1,10 @@
-package com.ecommerce.adapter.dto;
+package com.ecommerce.adapter.dto.order;
 
 
-import org.hibernate.validator.constraints.UUID;
+
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 public record OrderItemResponseDTO(
         UUID productId,

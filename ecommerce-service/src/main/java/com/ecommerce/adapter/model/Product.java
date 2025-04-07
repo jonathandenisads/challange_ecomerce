@@ -1,4 +1,4 @@
-package com.ecommerce.core.domain.model;
+package com.ecommerce.adapter.model;
 
 
 import jakarta.persistence.*;
@@ -26,9 +26,6 @@ public class Product {
     private Integer quantidadeEstoque;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataAtualizacao;
-
-    @Version // Controle de concorrência
-    private Integer version;
 
     @PrePersist
     public void prePersist() {

@@ -1,11 +1,11 @@
 package com.ecommerce.adapter.controller;
 
-import com.ecommerce.adapter.dto.LoginRequest;
-import com.ecommerce.adapter.dto.LoginResponse;
-import com.ecommerce.adapter.dto.RegisterRequest;
-import com.ecommerce.core.domain.model.User;
+import com.ecommerce.adapter.dto.login.LoginRequest;
+import com.ecommerce.adapter.dto.login.LoginResponse;
+import com.ecommerce.adapter.dto.login.RegisterRequest;
+import com.ecommerce.adapter.model.User;
 import com.ecommerce.infrastructure.security.JwtTokenProvider;
-import com.ecommerce.repository.UserRepository;
+import com.ecommerce.adapter.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -47,7 +47,7 @@ public class AuthController {
         User user = new User();
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setRole(request.getRole());
+        user.setRole(User.Role.valueOf(request.getRole().toUpperCase()));
         userRepository.save(user);
         return ResponseEntity.ok("Usuário registrado com sucesso");
     }

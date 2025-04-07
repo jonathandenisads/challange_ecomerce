@@ -1,11 +1,10 @@
-package com.ecommerce.core.domain.model;
+package com.ecommerce.adapter.model;
 
-import com.ecommerce.core.domain.enums.PaymentMethod;
-import com.ecommerce.core.domain.enums.PaymentStatus;
+import com.ecommerce.adapter.enums.PaymentMethod;
+import com.ecommerce.adapter.enums.PaymentStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
-import com.ecommerce.core.domain.enums.OrderStatus;
-import jakarta.persistence.*;
+import com.ecommerce.adapter.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

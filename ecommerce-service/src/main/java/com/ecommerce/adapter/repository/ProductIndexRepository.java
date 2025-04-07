@@ -1,4 +1,4 @@
-package com.ecommerce.repository;
+package com.ecommerce.adapter.repository;
 
 
 import com.ecommerce.infrastructure.search.ProductIndex;
