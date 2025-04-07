@@ -30,7 +30,7 @@ public class OrderPaidConsumer {
     public void handleOrderPaid(@Payload String orderId) {
         UUID uuid = UUID.fromString(orderId);
         Order order = orderRepository.findById(uuid)
-                .orElseThrow(() -> new ResourceNotFoundException("Order not found: " + orderId));
+                .orElseThrow(() -> new ResourceNotFoundException("Pedido não encontrado: " + orderId));
 
         order.getItems().forEach(item -> {
             Product product = item.getProduct();

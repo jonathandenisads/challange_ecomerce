@@ -25,18 +25,16 @@ public class ProductService {
     @Autowired
     private ProdutoSearchService productSearchService;
 
-    @Autowired
-    private ElasticsearchClient elasticsearchClient;
 
-    public List<Product> listarTodos() {
+    public List<Product> findAll() {
         return productRepository.findAll();
     }
 
-    public Optional<Product> buscarPorId(UUID id) {
+    public Optional<Product> findById(UUID id) {
         return productRepository.findById(id);
     }
 
-    public List<ProductIndex> buscar(String nome, String categoria, BigDecimal minPreco, BigDecimal maxPreco) {
+    public List<ProductIndex> findByNameCategoryAndPrice(String nome, String categoria, BigDecimal minPreco, BigDecimal maxPreco) {
         try {
             if (nome != null) {
                 return productSearchService.searchByName(nome);
@@ -54,9 +52,8 @@ public class ProductService {
     }
 
     @Transactional
-    public Product salvar(Product product) {
+    public Product save(Product product) {
         Product savedProduct = productRepository.save(product);
-        System.out.println("Produto salvo no banco: " + savedProduct);
 
         ProductIndex productIndex = new ProductIndex(
                 savedProduct.getId(),
@@ -71,7 +68,6 @@ public class ProductService {
 
         try {
             productSearchService.indexProduct(productIndex);
-            System.out.println("Indexando no Elasticsearch...");
         } catch (IOException e) {
             throw new RuntimeException("Erro ao indexar produto no Elasticsearch", e);
         }
@@ -80,7 +76,7 @@ public class ProductService {
     }
 
     @Transactional
-    public Product atualizar(UUID id, Product product) {
+    public Product updateProduct(UUID id, Product product) {
         if (!productRepository.existsById(id)) {
             throw new RuntimeException("Produto não encontrado.");
         }
@@ -109,7 +105,7 @@ public class ProductService {
     }
 
     @Transactional
-    public void deletar(UUID id) {
+    public void deleteProduct(UUID id) {
         Product existingProduct = productRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Produto não encontrado"));
 

@@ -1,8 +1,5 @@
 package com.ecommerce.adapter.dto.order;
 
-
-
-
 import java.math.BigDecimal;
 import java.util.UUID;
 

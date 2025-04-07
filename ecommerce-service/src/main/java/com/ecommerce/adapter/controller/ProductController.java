@@ -30,13 +30,13 @@ public class ProductController {
     @Operation(
             summary = "Busca de Produtos Personalizada",
             description = "Usuários e administradores podem ver os produtos")
-    public ResponseEntity<List<ProductIndex>> buscarProdutos(
+    public ResponseEntity<List<ProductIndex>> searchProducts(
         @RequestParam(required = false) String nome,
         @RequestParam(required = false) String categoria,
         @RequestParam(required = false) BigDecimal minPreco,
         @RequestParam(required = false) BigDecimal maxPreco) {
     
-        return ResponseEntity.ok(productService.buscar(nome, categoria, minPreco, maxPreco));
+        return ResponseEntity.ok(productService.findByNameCategoryAndPrice(nome, categoria, minPreco, maxPreco));
     }
 
     @GetMapping
@@ -45,8 +45,8 @@ public class ProductController {
             summary = "Listar todos os produtos",
             description = "Acesso permitido para ADMIN e USER"
     )
-    public ResponseEntity<List<Product>> listarTodos() {
-        return ResponseEntity.ok(productService.listarTodos());
+    public ResponseEntity<List<Product>> findAll() {
+        return ResponseEntity.ok(productService.findAll());
     }
 
     @GetMapping("/{id}")
@@ -55,8 +55,8 @@ public class ProductController {
             summary = "Buscar produto por ID",
             description = "Consulta detalhes de um produto específico. Acesso para ADMIN e USER"
     )
-    public ResponseEntity<Product> buscarPorId(@PathVariable UUID id) {
-        Optional<Product> product = productService.buscarPorId(id);
+    public ResponseEntity<Product> findById(@PathVariable UUID id) {
+        Optional<Product> product = productService.findById(id);
         return product.map(ResponseEntity::ok)
                       .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -67,8 +67,8 @@ public class ProductController {
             summary = "Criar produto",
             description = "Requer token JWT de um usuário com papel ADMIN"
     )
-    public ResponseEntity<Product> criarProduto(@RequestBody Product product) {
-        return ResponseEntity.ok(productService.salvar(product));
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+        return ResponseEntity.ok(productService.save(product));
     }
 
     @PutMapping("/{id}")
@@ -77,8 +77,8 @@ public class ProductController {
             summary = "Atualizar produto",
             description = "Atualiza os dados de um produto existente. Requer papel ADMIN"
     )
-    public ResponseEntity<Product> atualizarProduto(@PathVariable UUID id, @RequestBody Product product) {
-        return ResponseEntity.ok(productService.atualizar(id, product));
+    public ResponseEntity<Product> updateProduct(@PathVariable UUID id, @RequestBody Product product) {
+        return ResponseEntity.ok(productService.updateProduct(id, product));
     }
 
     @DeleteMapping("/{id}")
@@ -87,8 +87,8 @@ public class ProductController {
             summary = "Excluir produto",
             description = "Remove um produto do sistema. Apenas ADMIN pode executar"
     )
-    public ResponseEntity<Void> deletarProduto(@PathVariable UUID id) {
-        productService.deletar(id);
+    public ResponseEntity<Void> deleteProduct(@PathVariable UUID id) {
+        productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }
 }

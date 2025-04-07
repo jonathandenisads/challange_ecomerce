@@ -5,7 +5,6 @@ import com.ecommerce.adapter.dto.order.CreateOrderItemDTO;
 import com.ecommerce.adapter.dto.order.OrderItemResponseDTO;
 import com.ecommerce.adapter.dto.order.OrderResponseDTO;
 import com.ecommerce.adapter.enums.OrderStatus;
-import com.ecommerce.adapter.enums.PaymentStatus;
 import com.ecommerce.adapter.model.*;
 import com.ecommerce.adapter.repository.OrderRepository;
 import com.ecommerce.adapter.repository.ProductRepository;
@@ -13,18 +12,12 @@ import com.ecommerce.adapter.repository.UserRepository;
 import com.ecommerce.infrastructure.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.common.errors.ResourceNotFoundException;
-import org.hibernate.validator.constraints.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +41,7 @@ public class OrderService {
 
         for (CreateOrderItemDTO itemDTO : itemsDTO) {
             Product product = productRepository.findById(itemDTO.productId())
-                    .orElseThrow(() -> new ResourceNotFoundException("Product not found: " + itemDTO.productId()));
+                    .orElseThrow(() -> new ResourceNotFoundException("Produto não Encontrado: " + itemDTO.productId()));
 
             // Verifica estoque
             if (product.getQuantidadeEstoque() < itemDTO.quantity()) {
@@ -97,9 +90,9 @@ public class OrderService {
         //Buscar usuario autenticado atraves do token
         String username = jwtTokenProvider.getUsernameFromToken(token.substring(7));
 
-        //Buscar usuario por username passando o usuario enviado no DTO
+        //Buscar usuario por username passando usuario Logado
         User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario não encontrado"));
 
         //Criar pedido
         Order order = new Order();
@@ -114,7 +107,7 @@ public class OrderService {
         //salvando pedido que foi cancelado por questao de estoque, slvando para registro!
         if (order.getStatus() == OrderStatus.CANCELED) {
             orderRepository.save(order);
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Order canceled due to insufficient stock");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Pedido CANCELADO devido ao estoque insuficiente");
         }
 
         //salvando pedidos feitos
