@@ -1,0 +1,43 @@
+Script para criar o index /products no elasticsearchcloud
+DELETE /products
+
+PUT /products
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "nome": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "descricao": {
+        "type": "text"
+      },
+      "preco": {
+        "type": "scaled_float",
+        "scaling_factor": 100
+      },
+      "categoria": {
+        "type": "keyword"
+      },
+      "quantidadeEstoque": {
+        "type": "integer"
+      },
+      "dataCriacao": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "dataAtualizacao": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      }
+    }
+  }
+}
