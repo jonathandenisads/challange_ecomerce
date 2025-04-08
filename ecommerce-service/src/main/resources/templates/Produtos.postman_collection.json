@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "6f552f0d-bd9d-476d-8455-a56d07fb3884",
+		"name": "Produtos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43763360",
+		"_collection_link": "https://jonathandenis.postman.co/workspace/Jonathan-Denis-'s-Workspace~e055394d-7a67-4f55-89cc-61014034c2f8/collection/43763360-6f552f0d-bd9d-476d-8455-a56d07fb3884?action=share&source=collection_link&creator=43763360"
+	},
+	"item": [
+		{
+			"name": "loginGerarTokenAdmin",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "loginGerarTokenUsuario",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "registerUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0MzgwNzU1OSwiZXhwIjoxNzQzODExMTU5fQ.skx4A4OKP4kRJktTxsJIBxdWCucM7fw1hUHAQNETFds",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"Denis\",\r\n    \"password\" : \"testesenha1@\",\r\n    \"role\" : \"USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CriarProduto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mzc5NzA1MSwiZXhwIjoxNzQzODAwNjUxfQ.RKfhk-CzxvIzcdhsorYsFPKGepah6i1NmxF_fuPPWUY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"teste1\",\r\n    \"descricao\": \"feijão1\",\r\n    \"preco\": 10.52,\r\n    \"categoria\": \"teste1\",\r\n    \"quantidadeEstoque\": 6,\r\n    \"dataCriacao\": \"2025-04-04T17:00:00\",\r\n    \"dataAtualizacao\": \"2025-04-04T17:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "criar pedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mzc5NzA1MSwiZXhwIjoxNzQzODAwNjUxfQ.RKfhk-CzxvIzcdhsorYsFPKGepah6i1NmxF_fuPPWUY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"teste1\",\r\n    \"descricao\": \"feijão1\",\r\n    \"preco\": 10.52,\r\n    \"categoria\": \"teste1\",\r\n    \"quantidadeEstoque\": 6,\r\n    \"dataCriacao\": \"2025-04-04T17:00:00\",\r\n    \"dataAtualizacao\": \"2025-04-04T17:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AlterarProduto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mzc5NzA1MSwiZXhwIjoxNzQzODAwNjUxfQ.RKfhk-CzxvIzcdhsorYsFPKGepah6i1NmxF_fuPPWUY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"teste1\",\r\n    \"descricao\": \"feijão1\",\r\n    \"preco\": 10.52,\r\n    \"categoria\": \"teste1\",\r\n    \"quantidadeEstoque\": 6,\r\n    \"dataCriacao\": \"2025-04-04T17:00:00\",\r\n    \"dataAtualizacao\": \"2025-04-04T17:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Produto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mzc5NzA1MSwiZXhwIjoxNzQzODAwNjUxfQ.RKfhk-CzxvIzcdhsorYsFPKGepah6i1NmxF_fuPPWUY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"teste1\",\r\n    \"descricao\": \"feijão1\",\r\n    \"preco\": 10.52,\r\n    \"categoria\": \"teste1\",\r\n    \"quantidadeEstoque\": 6,\r\n    \"dataCriacao\": \"2025-04-04T17:00:00\",\r\n    \"dataAtualizacao\": \"2025-04-04T17:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuscarProdutoPorId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mzc5NzA1MSwiZXhwIjoxNzQzODAwNjUxfQ.RKfhk-CzxvIzcdhsorYsFPKGepah6i1NmxF_fuPPWUY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"teste1\",\r\n    \"descricao\": \"feijão1\",\r\n    \"preco\": 10.52,\r\n    \"categoria\": \"teste1\",\r\n    \"quantidadeEstoque\": 6,\r\n    \"dataCriacao\": \"2025-04-04T17:00:00\",\r\n    \"dataAtualizacao\": \"2025-04-04T17:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar top5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mzc5NzA1MSwiZXhwIjoxNzQzODAwNjUxfQ.RKfhk-CzxvIzcdhsorYsFPKGepah6i1NmxF_fuPPWUY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"teste1\",\r\n    \"descricao\": \"feijão1\",\r\n    \"preco\": 10.52,\r\n    \"categoria\": \"teste1\",\r\n    \"quantidadeEstoque\": 6,\r\n    \"dataCriacao\": \"2025-04-04T17:00:00\",\r\n    \"dataAtualizacao\": \"2025-04-04T17:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MediaPedidoPorUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mzc5NzA1MSwiZXhwIjoxNzQzODAwNjUxfQ.RKfhk-CzxvIzcdhsorYsFPKGepah6i1NmxF_fuPPWUY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"teste1\",\r\n    \"descricao\": \"feijão1\",\r\n    \"preco\": 10.52,\r\n    \"categoria\": \"teste1\",\r\n    \"quantidadeEstoque\": 6,\r\n    \"dataCriacao\": \"2025-04-04T17:00:00\",\r\n    \"dataAtualizacao\": \"2025-04-04T17:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FaturamentoMensal",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mzc5NzA1MSwiZXhwIjoxNzQzODAwNjUxfQ.RKfhk-CzxvIzcdhsorYsFPKGepah6i1NmxF_fuPPWUY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"teste1\",\r\n    \"descricao\": \"feijão1\",\r\n    \"preco\": 10.52,\r\n    \"categoria\": \"teste1\",\r\n    \"quantidadeEstoque\": 6,\r\n    \"dataCriacao\": \"2025-04-04T17:00:00\",\r\n    \"dataAtualizacao\": \"2025-04-04T17:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscarProdutosElasticPersonalizado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mzc5NzA1MSwiZXhwIjoxNzQzODAwNjUxfQ.RKfhk-CzxvIzcdhsorYsFPKGepah6i1NmxF_fuPPWUY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"teste1\",\r\n    \"descricao\": \"feijão1\",\r\n    \"preco\": 10.52,\r\n    \"categoria\": \"teste1\",\r\n    \"quantidadeEstoque\": 6,\r\n    \"dataCriacao\": \"2025-04-04T17:00:00\",\r\n    \"dataAtualizacao\": \"2025-04-04T17:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://fdceefeb47dc4a48920853a21ce83844.us-east-2.aws.elastic-cloud.com:443/products/health",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "elastic",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "zV0CHgKlDJuY0x2CZlCVfeKQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fdceefeb47dc4a48920853a21ce83844.us-east-2.aws.elastic-cloud.com:443/products/health",
+					"protocol": "https",
+					"host": [
+						"fdceefeb47dc4a48920853a21ce83844",
+						"us-east-2",
+						"aws",
+						"elastic-cloud",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"products",
+						"health"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://fdceefeb47dc4a48920853a21ce83844.us-east-2.aws.elastic-cloud.com:443/products/health\" -u \"elastic:zV0CHgKlDJuY0x2CZlCVfeKQ\""
+			},
+			"response": []
+		}
+	]
+}
